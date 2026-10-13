@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<title>REDLINE — Standoff 2 Tournament</title>
+<style>
+:root{--bg:#09090b;--panel:#121216;--panel2:#19191f;--red:#f02b38;--red2:#ff4a54;--text:#f5f5f7;--muted:#a2a2ad;--line:#303038;--green:#43d68b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#361015 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid #ffffff12}.brand{font-weight:1000;letter-spacing:2px;font-size:20px}.brand b{color:var(--red)}.navlinks{display:flex;gap:20px;color:#c8c8ce;font-size:14px}.navlinks a:hover{color:white}
+.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}.eyebrow{color:var(--red2);font-size:12px;letter-spacing:2.5px;font-weight:900}.hero h1{font-size:clamp(42px,7vw,78px);line-height:.94;margin:16px 0;text-transform:uppercase;letter-spacing:-3px}.hero h1 span{color:var(--red)}.lead{color:#b9b9c2;line-height:1.7;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{border:0;border-radius:9px;padding:13px 18px;font-weight:850;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px}.primary{background:var(--red);color:white;box-shadow:0 8px 24px #f02b3828}.primary:hover{background:var(--red2)}.secondary{background:#ffffff0a;color:white;border:1px solid #ffffff22}.poster{min-height:330px;border:1px solid #ffffff1c;border-radius:18px;padding:24px;position:relative;overflow:hidden;background:linear-gradient(145deg,#241014,#111115 60%);display:flex;flex-direction:column;justify-content:space-between}.poster:before{content:"";position:absolute;width:270px;height:270px;border:34px solid #f02b3820;transform:rotate(35deg);right:-75px;top:-70px}.poster>*{position:relative}.poster-top{display:flex;justify-content:space-between;color:#d7d7dd;font-size:11px;letter-spacing:1.5px}.vs{display:flex;align-items:center;justify-content:space-between;margin:30px 0}.team{font-size:23px;font-weight:1000}.team small{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;margin-top:5px}.versus{font-size:26px;color:var(--red);font-weight:1000;font-style:italic}.poster-bottom{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #ffffff20;padding-top:18px}.stat strong{display:block;font-size:20px}.stat span{font-size:10px;color:var(--muted);letter-spacing:1px}
+.section{padding:35px 0 55px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:22px}.section h2{font-size:clamp(26px,4vw,36px);margin:8px 0 0;letter-spacing:-1px}.muted{color:var(--muted);font-size:14px;line-height:1.6}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(150deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:20px}.card .icon{font-size:23px}.card h3{margin:12px 0 7px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.slot{padding:16px;border:1px solid var(--line);border-radius:11px;background:#111115;min-height:88px}.slot .num{font-size:11px;color:var(--red2);letter-spacing:1px}.slot strong{display:block;margin-top:10px;font-size:13px;overflow-wrap:anywhere}.slot small{color:var(--muted)}
+.form-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:start}.info-panel{background:linear-gradient(145deg,#251014,#131317);border:1px solid #53252b;border-radius:15px;padding:23px}.info-panel h3{font-size:23px;margin:10px 0}.form-panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;color:#d7d7df;font-weight:750}input,textarea,select{width:100%;background:#0b0b0e;color:white;border:1px solid #36363f;border-radius:8px;padding:12px;font:inherit;font-size:14px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--red)}input::placeholder{color:#777781}.check{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#bdbdc5;line-height:1.5}.check input{width:auto;margin-top:3px}.notice{padding:12px;border-radius:8px;background:#ffffff08;color:#b9b9c2;font-size:12px;line-height:1.5;margin:14px 0}.hidden{display:none!important}.admin{background:#121216;border:1px solid #3b2024;border-radius:14px;padding:22px}.adminbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.adminbar input{max-width:230px}.table-wrap{overflow:auto;margin-top:16px}table{width:100%;border-collapse:collapse;min-width:700px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:12px}th{color:#ff7a83;text-transform:uppercase;letter-spacing:1px}.status{display:inline-block;padding:5px 8px;border-radius:6px;background:#ffffff10;font-size:11px}.status.ok{background:#43d68b20;color:var(--green)}.smallbtn{padding:7px 9px;border:1px solid #ffffff24;background:#ffffff0a;color:white;border-radius:6px;cursor:pointer}.danger{border-color:#6e252c;color:#ff8a91}.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}footer{border-top:1px solid #ffffff15;padding:24px 0 38px;color:#777782;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.pill{border:1px solid #ffffff22;border-radius:99px;padding:7px 10px;font-size:11px;color:#d0d0d7}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:48px}.poster{min-height:260px}.navlinks{gap:10px;font-size:12px}.brand{font-size:17px}.cards{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,1fr)}.form-layout{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.section-head{align-items:start;flex-direction:column}.hero h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#"><b>RED</b>LINE<span style="color:#777"> / S2</span></a>
+  <nav class="navlinks"><a href="#format">Формат</a><a href="#teams">Команды</a><a href="#register">Регистрация</a></nav>
+</header>
+<main>
+<section class="wrap hero">
+  <div>
+    <div class="eyebrow">COMMUNITY ESPORTS • SEASON 01</div>
+    <h1>STANDOFF 2<br><span>REDLINE CUP</span></h1>
+    <p class="lead">Турнирный вызов для сильнейших составов. Собери пятёрку, отправь заявку и получи подтверждение от организатора. Всего восемь слотов.</p>
+    <div class="actions"><a class="btn primary" href="#register">Зарегистрировать клан ↗</a><a class="btn secondary" href="#teams">Список команд</a></div>
+    <p class="muted" style="font-size:12px;margin-top:18px">Формат 5×5 · 8 команд · Денежный приз</p>
+  </div>
+  <div class="poster">
+    <div class="poster-top"><span>REDLINE CUP / S2</span><span class="pill">REGISTRATION OPEN</span></div>
+    <div class="vs"><div class="team">TEAM<br>RED<small>FIGHT AS ONE</small></div><div class="versus">VS</div><div class="team" style="text-align:right">TEAM<br>BLACK<small>NO MERCY</small></div></div>
+    <div class="poster-bottom"><div class="stat"><strong>5 × 5</strong><span>FORMAT</span></div><div class="stat"><strong>08</strong><span>TEAM SLOTS</span></div><div class="stat"><strong>PRIZE</strong><span>CASH POOL</span></div></div>
+  </div>
+</section>
+<section class="wrap section" id="format">
+  <div class="section-head"><div><div class="eyebrow">TOURNAMENT INFO</div><h2>Правила участия</h2></div><span class="pill">БЕСПЛАТНАЯ ЗАЯВКА</span></div>
+  <div class="cards">
+    <article class="card"><div class="icon">⚔️</div><h3>Формат 5×5</h3><p>Пять основных игроков в команде. Запасной игрок — по желанию организатора.</p></article>
+    <article class="card"><div class="icon">🏆</div><h3>8 команд</h3><p>Организатор проверяет заявки и подтверждает участие. После заполнения сетки можно вести резерв.</p></article>
+    <article class="card"><div class="icon">💰</div><h3>Денежный приз</h3><p>Сумма и правила выплаты должны быть объявлены организатором до начала турнира.</p></article>
+  </div>
+</section>
+<section class="wrap section" id="teams">
+  <div class="section-head"><div><div class="eyebrow">SLOTS / 08</div><h2>Участники</h2><p class="muted">Публичный список обновляется на этом устройстве после локальной проверки заявок.</p></div><span class="pill" id="slotCount">0 / 8 подтверждено</span></div>
+  <div class="slots" id="publicSlots"></div>
+</section>
+<section class="wrap section" id="register">
+  <div class="section-head"><div><div class="eyebrow">JOIN THE CUP</div><h2>Регистрация клана</h2><p class="muted">Заполняет капитан команды. Все поля со звёздочкой обязательны.</p></div></div>
+  <div class="form-layout">
+    <aside class="info-panel"><div class="eyebrow">YOUR TEAM. YOUR LEGACY.</div><h3>Займи слот в REDLINE CUP</h3><p class="muted">Укажи игровые ники и контакты внимательно. После отправки заявка появится в панели организатора на этом устройстве.</p><div class="notice">⚠️ Это локальный прототип: заявки сохраняются только в браузере, где открыт сайт. Чтобы собирать заявки от других людей через публичную ссылку, понадобится подключить базу данных или форму регистрации.</div></aside>
+    <form class="form-panel" id="regForm">
+      <div class="fields">
+        <div class="field"><label for="clan">Название клана *</label><input id="clan" required maxlength="40" placeholder="Например, RED WOLVES"></div>
+        <div class="field"><label for="tag">Тег клана *</label><input id="tag" required maxlength="12" placeholder="Например, RW"></div>
+        <div class="field"><label for="captain">Ник капитана *</label><input id="captain" required maxlength="32" placeholder="Игровой ник"></div>
+        <div class="field"><label for="telegram">Telegram капитана *</label><input id="telegram" required maxlength="50" placeholder="@username"></div>
+        <div class="field"><label for="id1">ID капитана *</label><input id="id1" required maxlength="40" placeholder="Игровой ID"></div>
+        <div class="field"><label for="reserve">Запасной игрок (необязательно)</label><input id="reserve" maxlength="32" placeholder="Ник запасного"></div>
+        <div class="field"><label for="p2">Игрок 2 — ник *</label><input id="p2" required maxlength="32"></div>
+        <div class="field"><label for="p2id">Игрок 2 — ID *</label><input id="p2id" required maxlength="40"></div>
+        <div class="field"><label for="p3">Игрок 3 — ник *</label><input id="p3" required maxlength="32"></div>
+        <div class="field"><label for="p3id">Игрок 3 — ID *</label><input id="p3id" required maxlength="40"></div>
+        <div class="field"><label for="p4">Игрок 4 — ник *</label><input id="p4" required maxlength="32"></div>
+        <div class="field"><label for="p4id">Игрок 4 — ID *</label><input id="p4id" required maxlength="40"></div>
+        <div class="field"><label for="p5">Игрок 5 — ник *</label><input id="p5" required maxlength="32"></div>
+        <div class="field"><label for="p5id">Игрок 5 — ID *</label><input id="p5id" required maxlength="40"></div>
+        <div class="field full"><label for="note">Комментарий организатору (необязательно)</label><textarea id="note" rows="2" maxlength="300" placeholder="Часовой пояс, удобное время и т. п."></textarea></div>
+      </div>
+      <div class="notice">Отправляя заявку, капитан подтверждает согласие с правилами турнира и обработкой указанных контактных данных организатором.</div>
+      <label class="check"><input type="checkbox" id="agree" required><span>Подтверждаю, что данные команды указаны верно и мы согласны с правилами турнира. *</span></label>
+      <button class="btn primary" type="submit" style="width:100%;margin-top:17px">Отправить заявку ↗</button>
+      <p id="formMessage" class="muted" role="status"></p>
+    </form>
+  </div>
+</section>
+<section class="wrap section" id="admin">
+  <div class="section-head"><div><div class="eyebrow">ORGANIZER ONLY / LOCAL DEMO</div><h2>Панель организатора</h2><p class="muted">Демо-панель для просмотра, подтверждения и экспорта заявок.</p></div></div>
+  <div class="admin">
+    <div class="adminbar"><input id="adminPin" type="password" placeholder="Демо-код: 2026" aria-label="Демо-код"><button class="btn primary" id="unlock">Открыть панель</button><button class="btn secondary hidden" id="export">Экспорт CSV</button><button class="btn secondary hidden" id="clearAll">Очистить заявки</button></div>
+    <p class="muted" style="font-size:12px">Важно: демо-код не является настоящей защитой. Не публикуй этот прототип как систему с конфиденциальными данными.</p>
+    <div id="adminContent" class="hidden"><div class="table-wrap"><table><thead><tr><th>Клан / тег</th><th>Капитан</th><th>Состав</th><th>Контакт</th><th>Статус</th><th>Действие</th></tr></thead><tbody id="adminRows"></tbody></table></div><div id="adminEmpty" class="empty">Заявок пока нет.</div></div>
+  </div>
+</section>
+</main>
+<footer class="wrap"><span>REDLINE CUP • STANDOFF 2 COMMUNITY TOURNAMENT</span><span>Неофициальный фанатский турнир. Не связан с правообладателями Standoff 2.</span></footer>
+<script>
+const KEY='redline_cup_entries_v1';
+const $=id=>document.getElementById(id);
+let unlocked=false;
+function getEntries(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function saveEntries(a){localStorage.setItem(KEY,JSON.stringify(a))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ const entries=getEntries(), approved=entries.filter(x=>x.status==='Подтверждена');
+ $('slotCount').textContent=approved.length+' / 8 подтверждено';
+ $('publicSlots').innerHTML=Array.from({length:8},(_,i)=>{const e=approved[i];return `<div class="slot"><div class="num">SLOT 0${i+1}</div><strong>${e?esc(e.tag+' / '+e.clan):'СВОБОДНО'}</strong><small>${e?'Участник':'Ожидает команду'}</small></div>`}).join('');
+ if(unlocked)renderAdmin();
+}
+function renderAdmin(){
+ const entries=getEntries();$('adminRows').innerHTML=entries.map((e,i)=>`<tr><td><b>${esc(e.clan)}</b><br><span class="muted">[${esc(e.tag)}]</span></td><td>${esc(e.captain)}<br><span class="muted">${esc(e.id1)}</span></td><td>${e.players.map(p=>esc(p)).join('<br>')}</td><td>${esc(e.telegram)}</td><td><span class="status ${e.status==='Подтверждена'?'ok':''}">${esc(e.status)}</span></td><td><button class="smallbtn" onclick="toggleStatus(${i})">${e.status==='Подтверждена'?'Снять':'Подтвердить'}</button> <button class="smallbtn danger" onclick="removeEntry(${i})">Удалить</button></td></tr>`).join('');
+ $('adminEmpty').classList.toggle('hidden',entries.length>0);
+}
+window.toggleStatus=i=>{let a=getEntries();if(!a[i])return;if(a[i].status!=='Подтверждена'&&a.filter(x=>x.status==='Подтверждена').length>=8){alert('Все 8 слотов уже заняты. Сними подтверждение с другой команды или оставь заявку в резерве.');return}a[i].status=a[i].status==='Подтверждена'?'На проверке':'Подтверждена';saveEntries(a);render()};
+window.removeEntry=i=>{if(confirm('Удалить эту заявку?')){let a=getEntries();a.splice(i,1);saveEntries(a);render()}};
+$('regForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const ids=['clan','tag','captain','telegram','id1','p2','p2id','p3','p3id','p4','p4id','p5','p5id','reserve','note'];
+ const v={};ids.forEach(id=>v[id]=$(id).value.trim());
+ const entries=getEntries();
+ if(entries.some(x=>x.tag.toLowerCase()===v.tag.toLowerCase())){$('formMessage').textContent='Заявка с таким тегом уже есть. Свяжись с организатором.';return}
+ const entry={clan:v.clan,tag:v.tag,captain:v.captain,telegram:v.telegram,id1:v.id1,reserve:v.reserve,note:v.note,players:[v.captain+' (капитан)',v.p2,v.p3,v.p4,v.p5],playerIds:[v.id1,v.p2id,v.p3id,v.p4id,v.p5id],status:'На проверке',created:new Date().toISOString()};
+ entries.push(entry);saveEntries(entries);$('regForm').reset();$('formMessage').textContent='Заявка сохранена в этом браузере. Для подтверждения дождитесь ответа организатора.';render();
+});
+$('unlock').addEventListener('click',()=>{if($('adminPin').value==='2026'){unlocked=true;$('adminContent').classList.remove('hidden');$('export').classList.remove('hidden');$('clearAll').classList.remove('hidden');$('adminPin').value='';renderAdmin()}else alert('Неверный демо-код')});
+$('export').addEventListener('click',()=>{const a=getEntries();const rows=[['Клан','Тег','Капитан','Telegram','ID капитана','Состав','ID игроков','Запасной','Статус','Комментарий'],...a.map(e=>[e.clan,e.tag,e.captain,e.telegram,e.id1,e.players.join(' | '),e.playerIds.join(' | '),e.reserve,e.status,e.note])];const csv='\ufeff'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='redline-cup-registrations.csv';link.click();URL.revokeObjectURL(url)});
+$('clearAll').addEventListener('click',()=>{if(confirm('Точно удалить все локальные заявки?')){saveEntries([]);render()}});
+render();
+</script>
+</body>
+</html>
